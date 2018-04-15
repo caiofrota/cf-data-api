@@ -1,0 +1,15 @@
+language: java
+jdk:
+  - oraclejdk8
+
+install: true
+script:
+  - mvn clean install
+  - mvn clean test jacoco:report
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -t 085235dc-ce72-4b49-9878-06fbdb43a3e2
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
