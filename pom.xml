@@ -7,7 +7,7 @@
 	<artifactId>cf-data-api</artifactId>
 	<version>1.0.0</version>
 	<name>CF Data API</name>
-	<description>A API to assist to create entities and services with generic methods.</description>
+	<description>An API to assist to create entities and services with generic methods.</description>
 
 	<!-- Properties -->
 	<properties>
