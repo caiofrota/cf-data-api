@@ -1,73 +1,25 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.cftechsol</groupId>
-	<artifactId>cf-data-api</artifactId>
-	<version>1.0.0</version>
-	<name>CF Data API</name>
-	<description>An API to assist to create entities and services with generic methods.</description>
-
-	<!-- Properties -->
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<props.compile.jdk.source>1.8</props.compile.jdk.source>
-		<props.compile.jdk.target>1.8</props.compile.jdk.target>
-	</properties>
 
 	<parent>
-		<!-- Spring Boot -->
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.0.RELEASE</version>
 		<relativePath />
 	</parent>
 
-	<!-- Dependencies -->
-	<dependencies>
-		<!-- Spring Boot - Web -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<!-- Spring Boot - Data JPA -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<!-- Lombok -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<!-- Spring Boot - Test -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<!-- H2 Database -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+	<groupId>com.cftechsol</groupId>
+	<artifactId>cf-data-api</artifactId>
+	<version>1.0.0</version>
 
-	<!-- Repositories -->
-	<repositories>
-		<!-- Lombok -->
-		<repository>
-			<id>projectlombok.org</id>
-			<url>http://projectlombok.org/mavenrepo</url>
-		</repository>
-	</repositories>
+	<name>CF Data API</name>
+	<description>An API to assist to create entities and services with generic methods.</description>
+	<organization>
+		<name>CF Technology Solutions</name>
+		<url>https://www.cftechsol.com</url>
+	</organization>
 
-	<!-- Developers specification -->
 	<developers>
 		<developer>
 			<id>caiofrota</id>
@@ -82,13 +34,59 @@
 		</developer>
 	</developers>
 
-	<!-- Organization specification -->
-	<organization>
-		<name>CF Technology Solutions</name>
-		<url>https://www.cftechsol.com</url>
-	</organization>
+	<distributionManagement>
+		<repository>
+			<id>cftechsol</id>
+			<url>ftp://ftp.cftechnologysolutions.com/webapps/maven2</url>
+		</repository>
+	</distributionManagement>
 
-	<!-- Build configurations -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<props.compile.jdk.source>1.8</props.compile.jdk.source>
+		<props.compile.jdk.target>1.8</props.compile.jdk.target>
+	</properties>
+
+	<dependencies>
+		<!-- Framework - Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Database - H2 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Spring Boot - Test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Spring Boot - Web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Spring Boot - Data JPA -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>projectlombok.org</id>
+			<url>http://projectlombok.org/mavenrepo</url>
+		</repository>
+	</repositories>
+
 	<build>
 		<plugins>
 			<!-- Java build configurations -->
@@ -172,8 +170,8 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<!-- Wagon FTP -->
 		<extensions>
+			<!-- Wagon FTP -->
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ftp</artifactId>
@@ -181,13 +179,4 @@
 			</extension>
 		</extensions>
 	</build>
-
-	<!-- Deploy configurations -->
-	<distributionManagement>
-		<repository>
-			<id>cftechsol</id>
-			<url>ftp://ftp.cftechnologysolutions.com/webapps/maven2</url>
-		</repository>
-	</distributionManagement>
-
 </project>
