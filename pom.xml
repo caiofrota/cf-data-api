@@ -24,6 +24,7 @@
 		<relativePath />
 	</parent>
 
+	<!-- Dependencies -->
 	<dependencies>
 		<!-- Spring Boot - Web -->
 		<dependency>
@@ -59,6 +60,7 @@
 
 	<!-- Repositories -->
 	<repositories>
+		<!-- Lombok -->
 		<repository>
 			<id>projectlombok.org</id>
 			<url>http://projectlombok.org/mavenrepo</url>
