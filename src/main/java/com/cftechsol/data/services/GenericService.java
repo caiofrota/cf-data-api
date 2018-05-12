@@ -87,7 +87,7 @@ public class GenericService<R extends JpaRepository<E, PK>, E, PK> {
 	/**
 	 * Delete one object.
 	 * 
-	 * @param id
+	 * @param object
 	 *            Object to delete.
 	 * @throws Exception
 	 */
