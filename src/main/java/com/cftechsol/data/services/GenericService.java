@@ -85,14 +85,14 @@ public class GenericService<R extends JpaRepository<E, PK>, E, PK> {
 	}
 
 	/**
-	 * Delete one object by primary key.
+	 * Delete one object.
 	 * 
 	 * @param id
-	 *            Object primary key to delete.
+	 *            Object to delete.
 	 * @throws Exception
 	 */
-	public void delete(PK id) throws Exception {
-		this.repository.deleteById(id);
+	public void delete(E object) throws Exception {
+		this.repository.delete(object);
 	}
 
 }
