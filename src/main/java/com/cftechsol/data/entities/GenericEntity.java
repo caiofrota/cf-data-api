@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,9 +30,10 @@ import lombok.Setter;
 public class GenericEntity<PK> implements Serializable {
 
 	private static final long serialVersionUID = -4593299482892183422L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class)
 	private PK id;
 
 	@Override
