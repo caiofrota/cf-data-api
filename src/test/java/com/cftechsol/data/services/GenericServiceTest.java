@@ -105,7 +105,7 @@ public class GenericServiceTest {
 		ExampleEntity example = new ExampleEntity(name);
 		example = service.save(example);
 		
-		service.delete(example);
+		service.delete(example.getId());
 		service.findById(example.getId());
 	}
 

@@ -2,6 +2,7 @@ package com.cftechsol.data.services;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -44,7 +45,8 @@ public class GenericService<R extends JpaRepository<E, PK>, E, PK> {
 	 * @return Entity.
 	 */
 	public E findById(PK id) {
-		return this.repository.findById(id).get();
+		Optional<E> object = this.repository.findById(id);
+		return (object.isPresent()) ? object.get() : null;
 	}
 
 	/**
@@ -72,7 +74,7 @@ public class GenericService<R extends JpaRepository<E, PK>, E, PK> {
 		if (object instanceof GenericAuditEntity) {
 			GenericAuditEntity<PK> audit = (GenericAuditEntity<PK>) object;
 			Date now = new Date();
-			if (audit.getId() == null) {
+			if (audit.getId() == null || this.findById(audit.getId()) == null) {
 				audit.setCreatedBy(user);
 				audit.setCreatedOn(new Date());
 			}
@@ -91,8 +93,8 @@ public class GenericService<R extends JpaRepository<E, PK>, E, PK> {
 	 *            Object to delete.
 	 * @throws Exception
 	 */
-	public void delete(E object) throws Exception {
-		this.repository.delete(object);
+	public void delete(PK object) throws Exception {
+		this.repository.deleteById(object);
 	}
 
 }
