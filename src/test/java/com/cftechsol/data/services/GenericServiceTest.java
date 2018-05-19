@@ -1,7 +1,6 @@
 package com.cftechsol.data.services;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -100,13 +99,13 @@ public class GenericServiceTest {
 		Assert.assertEquals(found.getId(), example.getId());
 	}
 
-	@Test(expected = NoSuchElementException.class)
+	@Test
 	public void shouldDeleteById() throws Exception {
 		ExampleEntity example = new ExampleEntity(name);
 		example = service.save(example);
 		
 		service.delete(example.getId());
-		service.findById(example.getId());
+		Assert.assertNull(service.findById(example.getId()));
 	}
 
 }
