@@ -30,7 +30,7 @@ import lombok.Setter;
 public class GenericEntity<PK> implements Serializable {
 
 	private static final long serialVersionUID = -4593299482892183422L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class)
@@ -46,7 +46,7 @@ public class GenericEntity<PK> implements Serializable {
 			return false;
 
 		GenericEntity<PK> that = (GenericEntity<PK>) o;
-		return Objects.equals(getId(), that.getId());
+		return Objects.equals(this.getId(), that.getId());
 	}
 
 	@Override

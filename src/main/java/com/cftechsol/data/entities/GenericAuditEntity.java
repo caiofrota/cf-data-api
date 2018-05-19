@@ -24,7 +24,7 @@ import lombok.Setter;
 @Setter
 public class GenericAuditEntity<PK> extends GenericEntity<PK> {
 
-	private static final long serialVersionUID = 1770269948078741231L;
+	private static final long serialVersionUID = -145159901714827356L;
 
 	@Column(name = "created_by")
 	private long createdBy;
@@ -44,22 +44,23 @@ public class GenericAuditEntity<PK> extends GenericEntity<PK> {
 		if (this == o)
 			return true;
 
-		if (o == null || getClass() != o.getClass())
+		if (o == null || this.getClass() != o.getClass())
 			return false;
 
 		GenericAuditEntity<PK> that = (GenericAuditEntity<PK>) o;
 		// @formatter:off
 		return super.equals(o) &&
-				Objects.equals(getCreatedBy(), that.getCreatedBy()) &&
-				Objects.equals(getCreatedOn(), that.getCreatedOn()) &&
-				Objects.equals(getUpdatedBy(), that.getUpdatedBy()) &&
-				Objects.equals(getUpdatedOn(), that.getUpdatedOn());
+				Objects.equals(this.getCreatedBy(), that.getCreatedBy()) &&
+				Objects.equals(this.getCreatedOn(), that.getCreatedOn()) &&
+				Objects.equals(this.getUpdatedBy(), that.getUpdatedBy()) &&
+				Objects.equals(this.getUpdatedOn(), that.getUpdatedOn());
 		// @formatter:on
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), getCreatedBy(), getCreatedOn(), getUpdatedBy(), getUpdatedOn());
+		return Objects.hash(super.hashCode(), this.getCreatedBy(), this.getCreatedOn(), this.getUpdatedBy(),
+				this.getUpdatedOn());
 	}
 
 }
